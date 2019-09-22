@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="tabset">
-    <div class="tab" *ngFor="let name of tabNames" (click)="changeActiveTab(name)">
-      <div class="tab-name">{{name}}</div>
+    <div class="tab" [class.active] = "name === activeTabName" *ngFor="let name of tabNames" (click)="changeActiveTab(name)">
+      <p>{{name}}</p>
     </div>
   </div>
   <div class="tab-content">

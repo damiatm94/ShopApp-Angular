@@ -1,1 +1,13 @@
-<p>warehouse works!</p>
+<div class="table-container">
+    <div class="table-header">
+        TABLE HEADER
+    </div>
+    <div class="table-content" *ngIf="availableProducts.length > 0; else notifyEmptyTable">
+        <div class="table-row" *ngFor="let product of availableProducts">
+            {{product}}
+        </div>
+    </div>
+    <ng-template #notifyEmptyTable>{{MESSAGE_NO_PRODUCTS}}</ng-template>
+
+
+</div>
