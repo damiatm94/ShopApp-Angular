@@ -1,13 +1,12 @@
 <div class="main-container">
   <div class="tabset">
-    <div class="tab">
-      <app-warehouse></app-warehouse>
+    <div class="tab" *ngFor="let name of tabNames" (click)="changeActiveTab(name)">
+      <div class="tab-name">{{name}}</div>
     </div>
-    <div class="tab">
-      <app-orders></app-orders>
-    </div>
-    <div class="tab">
-      <app-shop></app-shop>
-    </div>
+  </div>
+  <div class="tab-content">
+    <app-warehouse *ngIf="activeTabName === tabNames[0]"></app-warehouse>
+    <app-orders *ngIf="activeTabName === tabNames[1]"></app-orders>
+    <app-shop *ngIf="activeTabName === tabNames[2]"></app-shop>
   </div>
 </div>
