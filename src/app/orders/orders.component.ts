@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from './order.model';
+import { OrdersService } from './orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -7,10 +8,9 @@ import { Order } from './order.model';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  private createdOrders: Order[] = [];
-  private ordersHistory: Order[] = [];
 
-  constructor() { }
+  //TODO use virtual scroll to display orders lists
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit() {
   }
@@ -48,23 +48,16 @@ export class OrdersComponent implements OnInit {
       }
     ];
 
-    this.createdOrders.push({
-        id: dummyId,
-        products: dummyProducts,
-        date: new Date(),
-        isOrderMade: false
-      });
+    this.ordersService.createNewOrder({
+      id: dummyId,
+      products: dummyProducts,
+      date: new Date(),
+      isOrderMade: false
+    });
   }
 
-  private removeFromCreatedOrders(orderId: string) {
-      this.createdOrders = this.createdOrders.filter(elem => elem.id !== orderId);
-      console.log('this.createdOrders', this.createdOrders);
-  }
-
-  private moveToOrdersHistory(order: Order) {
-    this.ordersHistory.push(order);
-    this.removeFromCreatedOrders(order.id);
-    console.log('Moved to history:', order);
+  private confirmOrderArrival(order: Order) {
+    this.ordersService.moveToOrdersHistory(order);
   }
 
 }

@@ -1,3 +1,4 @@
+import { ProductsService } from './../products/services/products.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WarehouseComponent } from './warehouse.component';
@@ -8,7 +9,10 @@ describe('WarehouseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WarehouseComponent ]
+      declarations: [ WarehouseComponent ],
+      providers: [
+        ProductsService
+      ]
     })
     .compileComponents();
   }));

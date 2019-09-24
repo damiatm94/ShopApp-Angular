@@ -1,5 +1,7 @@
 import { Product } from '../product.interface';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class ProductsService {
     private productsCollection: Product[] = [];
 
@@ -9,7 +11,7 @@ export class ProductsService {
         this.productsCollection.forEach(elem => {
             if (elem.id === product.id) {
                 isProductAlreadyExisting = true;
-                elem.quantity++;
+                elem.quantity += product.quantity;
             }
         });
         if (!isProductAlreadyExisting) {

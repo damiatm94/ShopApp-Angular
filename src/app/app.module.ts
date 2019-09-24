@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/components/products.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ShopComponent } from './shop/shop.component';
+import { OrdersService } from './orders/orders.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ShopComponent } from './shop/shop.component';
   ],
   exports: [],
   providers: [
-    ProductsService
+    ProductsService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })

@@ -54,7 +54,7 @@ describe('ProductsService', () => {
     it('should increase the quantity of product with specific id', () => {
         service.addProduct(productA);
         expect(service.getAllProducts().length).toEqual(3);
-        expect(service.getAllProducts()[0].quantity).toEqual(11);
+        expect(service.getAllProducts()[0].quantity).toEqual(20);
     });
 
     it('should remove product with specific id', () => {

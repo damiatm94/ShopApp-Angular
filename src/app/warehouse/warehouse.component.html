@@ -4,10 +4,8 @@
     </div>
     <div class="table-content" *ngIf="availableProducts.length > 0; else notifyEmptyTable">
         <div class="table-row" *ngFor="let product of availableProducts">
-            {{product}}
+            {{product.id}} - {{product.name}} - {{product.type}} - {{product.quantity}} - {{product.price}}
         </div>
     </div>
     <ng-template #notifyEmptyTable>{{MESSAGE_NO_PRODUCTS}}</ng-template>
-
-
 </div>
