@@ -1,0 +1,45 @@
+.orders-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-lists {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.confirm-arrival {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 120px;
+    margin: 0 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #FFF;
+    background: rgb(26, 102, 160);
+    border-radius: 20px;
+}
+
+.confirm-arrival:hover {
+    background: rgb(31, 123, 194);
+}
+
+.created-orders, .orders-history-list {
+    height: 300px;
+    border: 1px solid #000;
+    overflow-y: scroll;
+}
+
+.created-order-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid transparent;
+}
+
+.created-order-element:hover {
+    background: rgb(49, 49, 49);
+}

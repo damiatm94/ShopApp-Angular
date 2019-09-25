@@ -2,21 +2,23 @@
     <div class="new-order-creation">
         <div class="create-order" (click)="createNewOrder()">Create new order</div>
     </div>
-    <div class="orders-in-progress">
-        ORDERS IN PROGRESS
-        <ul class="created-orders">
-            <li class="created-order-element" *ngFor="let order of ordersService.getCreatedOrders()">
-                Date: {{order.date}}; Status: {{order.isOrderMade}}
-                <div class="confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
-            </li>
-        </ul>
-    </div>
-    <div class="orders-history">
-        ORDERS HISTORY
-        <ul class="orders-history-list">
-            <li class="historical-order-element" *ngFor="let order of ordersService.getOrdersHistory()">
-                Date: {{order.date}}; Status: {{order.isOrderMade}}
-            </li>
-        </ul>
+    <div class="orders-lists">
+        <div class="orders-in-progress">
+            ORDERS IN PROGRESS
+            <ul class="created-orders">
+                <li class="created-order-element" *ngFor="let order of ordersService.getCreatedOrders()">
+                    Date: {{order.date}}; Status: {{order.isOrderMade}}
+                    <div class="confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
+                </li>
+            </ul>
+        </div>
+        <div class="orders-history">
+            ORDERS HISTORY
+            <ul class="orders-history-list">
+                <li class="historical-order-element" *ngFor="let order of ordersService.getOrdersHistory()">
+                    Date: {{order.date}}; Status: {{order.isOrderMade}}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
