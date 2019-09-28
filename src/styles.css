@@ -31,3 +31,9 @@ ul, li {
 .list-button:hover {
     background: rgb(31, 123, 194);
 }
+
+.list-title {
+    margin: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}

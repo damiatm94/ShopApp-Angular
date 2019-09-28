@@ -1,13 +1,13 @@
 <div class="orders-container">
     <div class="new-order-creation">
-        <div class="create-order" (click)="createNewOrder()">Create new order</div>
+        <div class="create-order" (click)="createNewOrder()">New order</div>
     </div>
     <div class="orders-lists">
         <div class="orders-in-progress">
-            ORDERS IN PROGRESS
+            <p class="list-title">ORDERS IN PROGRESS</p>
             <ul class="created-orders">
-                <li class="created-order-element" *ngFor="let order of ordersService.getCreatedOrders()">
-                    <p class="order-title">Date: {{order.date}}; Status: {{order.isOrderMade}}</p>
+                <li class="order-element" *ngFor="let order of ordersService.getCreatedOrders()">
+                    <p class="order-title">{{getDateToDisplay(order)}} {{order.id}} {{order.customTitle}}</p>
                     <div class="action-buttons">
                         <div class="list-button confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
                         <div class="list-button show-details" (click)="showDetailsPanel(order)">Details</div>
@@ -16,10 +16,10 @@
             </ul>
         </div>
         <div class="orders-history">
-            ORDERS HISTORY
+            <p class="list-title">ORDERS HISTORY</p>
             <ul class="orders-history-list">
-                <li class="historical-order-element" *ngFor="let order of ordersService.getOrdersHistory()">
-                    Date: {{order.date}}; Status: {{order.isOrderMade}}
+                <li class="order-element" *ngFor="let order of ordersService.getOrdersHistory()">
+                    <p class="order-title">{{getDateToDisplay(order)}} {{order.id}} {{order.customTitle}}</p>
                 </li>
             </ul>
         </div>

@@ -50,6 +50,7 @@ export class OrdersComponent implements OnInit {
 
     this.ordersService.createNewOrder({
       id: dummyId,
+      customTitle: 'Custom Title',
       products: dummyProducts,
       date: new Date(),
       isOrderMade: false
@@ -61,7 +62,22 @@ export class OrdersComponent implements OnInit {
   }
 
   private showDetailsPanel(order: Order) {
-    console.log('show details panel');
+  }
+
+  private getDateToDisplay(order: Order): string {
+    const date = order.date.getDate()
+      + '/'
+      + order.date.getMonth().toLocaleString(undefined, { minimumIntegerDigits: 2 })
+      + '/'
+      + order.date.getFullYear();
+
+    const time = order.date.getUTCHours()
+      + ':'
+      + order.date.getUTCMinutes().toLocaleString(undefined, { minimumIntegerDigits: 2 })
+      + ':'
+      + order.date.getUTCSeconds().toLocaleString(undefined, { minimumIntegerDigits: 2 });
+
+    return `${date}  ${time}`;
   }
 
 }

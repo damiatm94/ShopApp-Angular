@@ -12,7 +12,7 @@ export class OrdersService {
     }
 
     public createNewOrder(order: Order) {
-        this.createdOrders.push(order);
+        this.createdOrders.unshift(order);
     }
 
     public removeCreatedOrder(orderId: string) {
