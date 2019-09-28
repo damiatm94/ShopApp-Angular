@@ -7,8 +7,11 @@
             ORDERS IN PROGRESS
             <ul class="created-orders">
                 <li class="created-order-element" *ngFor="let order of ordersService.getCreatedOrders()">
-                    Date: {{order.date}}; Status: {{order.isOrderMade}}
-                    <div class="confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
+                    <p class="order-title">Date: {{order.date}}; Status: {{order.isOrderMade}}</p>
+                    <div class="action-buttons">
+                        <div class="list-button confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
+                        <div class="list-button show-details" (click)="showDetailsPanel(order)">Details</div>
+                    </div>
                 </li>
             </ul>
         </div>

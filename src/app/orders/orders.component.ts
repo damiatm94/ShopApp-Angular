@@ -60,4 +60,8 @@ export class OrdersComponent implements OnInit {
     this.ordersService.moveToOrdersHistory(order);
   }
 
+  private showDetailsPanel(order: Order) {
+    console.log('show details panel');
+  }
+
 }

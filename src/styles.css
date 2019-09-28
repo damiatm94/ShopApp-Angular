@@ -12,3 +12,22 @@ ul, li {
     padding: 0;
     margin: 0;
 }
+
+.list-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 120px;
+    min-width: 120px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #FFF;
+    background: rgb(26, 102, 160);
+    border-radius: 20px;
+}
+
+.list-button:hover {
+    background: rgb(31, 123, 194);
+}
