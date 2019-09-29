@@ -1,0 +1,23 @@
+<div class="elements-list-container">
+    <p class="list-title" *ngIf="listTitle">{{listTitle}}</p>
+    <ul class="elements-list">
+        <li class="single-element" *ngFor="let element of elementsList">
+            <p class="single-element-title">{{getElementTitle(element)}}</p>
+            <!-- <elements-action-panel></elements-action-panel> -->
+
+            <div class="action-buttons">
+                <div class="amount-input-wrapper" *ngIf="actionElementsType === 2; else defaultWrapper">
+                    <div class="button-amount" (click)="increaseAmount()">+</div>
+                    <input type="number">
+                    <div class="button-amount" (click)="decreaseAmount()">-</div>
+                </div>
+                <ng-template #defaultWrapper>
+                    <div class="list-button confirm-arrival" (click)="confirmOrderArrival(element)"
+                        *ngIf="actionElementsType === 0">Set as done</div>
+                    <div class="list-button show-details" (click)="showDetailsPanel(element)">Details</div>
+                </ng-template>
+            </div>
+
+        </li>
+    </ul>
+</div>

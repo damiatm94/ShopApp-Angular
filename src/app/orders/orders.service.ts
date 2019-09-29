@@ -29,7 +29,7 @@ export class OrdersService {
 
 
     public moveToOrdersHistory(order: Order) {
-        this.ordersHistory.push(order);
+        this.ordersHistory.unshift(order);
         order.products.forEach(product => {
             this.productsService.addProduct(product);
         });

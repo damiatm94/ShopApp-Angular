@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products/services/products.service';
 import { Product } from '../products/product.interface';
+import { ActionElementsType } from '../elements-list/action-elements-type';
 
 @Component({
   selector: 'app-shop',
@@ -13,14 +14,6 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  private increaseAmount() {
-
-  }
-
-  private decreaseAmount() {
-
   }
 
   private sell() {

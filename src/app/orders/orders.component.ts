@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from './order.model';
 import { OrdersService } from './orders.service';
+import { ActionElementsType } from '../elements-list/action-elements-type';
 
 @Component({
   selector: 'app-orders',
@@ -8,6 +9,8 @@ import { OrdersService } from './orders.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+  private readonly CREATED_ORDERS_TITLE = 'ORDERS IN PROGRESS';
+  private readonly ORDERS_HISTORY_TITLE = 'ORDERS HISTORY';
 
   //TODO use virtual scroll to display orders lists
   constructor(private ordersService: OrdersService) { }
@@ -55,13 +58,6 @@ export class OrdersComponent implements OnInit {
       date: new Date(),
       isOrderMade: false
     });
-  }
-
-  private confirmOrderArrival(order: Order) {
-    this.ordersService.moveToOrdersHistory(order);
-  }
-
-  private showDetailsPanel(order: Order) {
   }
 
   private getDateToDisplay(order: Order): string {

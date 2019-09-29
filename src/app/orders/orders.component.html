@@ -3,25 +3,11 @@
         <div class="create-order" (click)="createNewOrder()">New order</div>
     </div>
     <div class="orders-lists">
-        <div class="orders-in-progress">
-            <p class="list-title">ORDERS IN PROGRESS</p>
-            <ul class="created-orders">
-                <li class="order-element" *ngFor="let order of ordersService.getCreatedOrders()">
-                    <p class="order-title">{{getDateToDisplay(order)}} {{order.id}} {{order.customTitle}}</p>
-                    <div class="action-buttons">
-                        <div class="list-button confirm-arrival" (click)="confirmOrderArrival(order)">Set as done</div>
-                        <div class="list-button show-details" (click)="showDetailsPanel(order)">Details</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="orders-history">
-            <p class="list-title">ORDERS HISTORY</p>
-            <ul class="orders-history-list">
-                <li class="order-element" *ngFor="let order of ordersService.getOrdersHistory()">
-                    <p class="order-title">{{getDateToDisplay(order)}} {{order.id}} {{order.customTitle}}</p>
-                </li>
-            </ul>
-        </div>
+        <app-elements-list [listTitle]="CREATED_ORDERS_TITLE" [elementsList]="ordersService.getCreatedOrders()" [actionElementsType]="0">
+        </app-elements-list>
+
+        <app-elements-list [listTitle]="ORDERS_HISTORY_TITLE" [elementsList]="ordersService.getOrdersHistory()" [actionElementsType]="1">
+        </app-elements-list>
+
     </div>
 </div>
