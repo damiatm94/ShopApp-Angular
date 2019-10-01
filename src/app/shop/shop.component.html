@@ -1,5 +1,13 @@
 <div class="sell-panel-container">
-    <app-elements-list [elementsList]="productsService.getAllProducts()" [actionElementsType]="2">
+    <app-elements-list
+    [elementsList]="productsService.getAllProducts()"
+    [firstButtonText] = "FIRST_BUTTON_TEXT"
+    [secondButtonText] = "SECOND_BUTTON_TEXT"
+    [shouldShowInput] = true
+    (firstButtonClicked)="decreaseAmount($event)"
+    (secondButtonClicked)="increaseAmount($event)">
+    >
     </app-elements-list>
+    <div class="button-action-green" (click)="sell()">Sell products</div>
 
 </div>

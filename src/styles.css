@@ -32,6 +32,25 @@ ul, li {
     background: rgb(31, 123, 194);
 }
 
+.button-action-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 140px;
+    min-width: 120px;
+    margin: 0 10px 10px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #FFF;
+    background: rgb(0, 138, 7);
+    border-radius: 20px;
+}
+
+.button-action-green:hover {
+    background: rgb(0, 170, 9);
+}
+
 .list-title {
     margin: 10px;
     text-transform: uppercase;

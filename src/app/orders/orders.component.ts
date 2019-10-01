@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from './order.model';
 import { OrdersService } from './orders.service';
-import { ActionElementsType } from '../elements-list/action-elements-type';
 
 @Component({
   selector: 'app-orders',
@@ -11,6 +10,8 @@ import { ActionElementsType } from '../elements-list/action-elements-type';
 export class OrdersComponent implements OnInit {
   private readonly CREATED_ORDERS_TITLE = 'ORDERS IN PROGRESS';
   private readonly ORDERS_HISTORY_TITLE = 'ORDERS HISTORY';
+  private firstButtonText = 'Show details';
+  private secondButtonText = 'Set as done';
 
   //TODO use virtual scroll to display orders lists
   constructor(private ordersService: OrdersService) { }
@@ -60,20 +61,13 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  private getDateToDisplay(order: Order): string {
-    const date = order.date.getDate()
-      + '/'
-      + order.date.getMonth().toLocaleString(undefined, { minimumIntegerDigits: 2 })
-      + '/'
-      + order.date.getFullYear();
+  private confirmOrderArrival(order: Order) {
+    console.log('confirmOrderArrival:', order);
+    this.ordersService.moveToOrdersHistory(order);
+  }
 
-    const time = order.date.getUTCHours()
-      + ':'
-      + order.date.getUTCMinutes().toLocaleString(undefined, { minimumIntegerDigits: 2 })
-      + ':'
-      + order.date.getUTCSeconds().toLocaleString(undefined, { minimumIntegerDigits: 2 });
+  private showDetailsPanel(order: Order) {
 
-    return `${date}  ${time}`;
   }
 
 }

@@ -1,12 +1,24 @@
 <div class="orders-container">
     <div class="new-order-creation">
-        <div class="create-order" (click)="createNewOrder()">New order</div>
+        <div class="button-action-green" (click)="createNewOrder()">New order</div>
     </div>
+
     <div class="orders-lists">
-        <app-elements-list [listTitle]="CREATED_ORDERS_TITLE" [elementsList]="ordersService.getCreatedOrders()" [actionElementsType]="0">
+        <app-elements-list
+        [listTitle]="CREATED_ORDERS_TITLE"
+        [elementsList]="ordersService.getCreatedOrders()"
+        [firstButtonText] = "firstButtonText"
+        [secondButtonText] = "secondButtonText"
+        (firstButtonClicked)="showDetailsPanel($event)"
+        (secondButtonClicked)="confirmOrderArrival($event)">
         </app-elements-list>
 
-        <app-elements-list [listTitle]="ORDERS_HISTORY_TITLE" [elementsList]="ordersService.getOrdersHistory()" [actionElementsType]="1">
+        <app-elements-list
+        [listTitle]="ORDERS_HISTORY_TITLE"
+        [elementsList]="ordersService.getOrdersHistory()"
+        [firstButtonText] = "firstButtonText"
+        (firstButtonClicked)="showDetailsPanel($event)"
+        [showSecondButton]="false">
         </app-elements-list>
 
     </div>

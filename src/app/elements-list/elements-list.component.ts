@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from '../orders/order.model';
 import { Product } from '../products/product.interface';
-import { ActionElementsType } from './action-elements-type';
 import { OrdersService } from '../orders/orders.service';
 
 @Component({
@@ -11,8 +10,15 @@ import { OrdersService } from '../orders/orders.service';
 })
 export class ElementsListComponent implements OnInit {
   @Input('listTitle') listTitle: string;
-  @Input('actionElementsType') actionElementsType: ActionElementsType;
   @Input('elementsList') elementsList: Order[] | Product[];
+
+  @Input() firstButtonText: string;
+  @Input() secondButtonText: string;
+  @Input() showFirstButton = true;
+  @Input() showSecondButton = true;
+  @Input() shouldShowInput = false;
+  @Output() firstButtonClicked = new EventEmitter();
+  @Output() secondButtonClicked = new EventEmitter();
 
   constructor(private ordersService: OrdersService) { }
 
@@ -49,19 +55,12 @@ export class ElementsListComponent implements OnInit {
     return title;
   }
 
-  private confirmOrderArrival(order: Order) {
-    this.ordersService.moveToOrdersHistory(order);
+  protected onFirstButtonClickHandler(element) {
+    this.firstButtonClicked.emit(element);
   }
 
-  private showDetailsPanel(order: Order) {
-  }
-
-  private increaseAmount() {
-
-  }
-
-  private decreaseAmount() {
-
+  protected onSecondButtonClickHandler(element) {
+    this.secondButtonClicked.emit(element);
   }
 
 }
